@@ -9,8 +9,15 @@ import com.sun.org.apache.xml.internal.serializer.SerializationHandler;
 import java.io.IOException;
 
 public class ShellExec extends AbstractTranslet{
+    static{
+        try {
+            Runtime.getRuntime().exec("touch /tmp/nimade");
+        }catch(Exception e){
+
+        }
+    }
     public ShellExec() throws IOException{
-        Runtime.getRuntime().exec("/Applications/Calculator.app/Contents/MacOS/Calculator");
+        Runtime.getRuntime().exec("open -a Calculator");
     }
     @Override
     public void transform(DOM document, DTMAxisIterator iterator, SerializationHandler handler) {
